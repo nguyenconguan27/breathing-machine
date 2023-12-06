@@ -1,4 +1,4 @@
-import {Box, List, ListItem, ListItemAvatar, ListItemText, Avatar, IconButton, Grid} from '@mui/material';
+import { Box, List, ListItem, ListItemAvatar, ListItemText, Avatar, IconButton, Grid } from '@mui/material';
 import PropaneTankSharpIcon from '@mui/icons-material/PropaneTankSharp';
 import PersonAddAltSharpIcon from '@mui/icons-material/PersonAddAltSharp';
 import PersonRemoveSharpIcon from '@mui/icons-material/PersonRemoveSharp';
@@ -30,21 +30,21 @@ export default function InteractiveList() {
   //   console.log(array)
   // }, [data])
   // console.log(data)
-  const deletePantient = (machine)  => () => {
+  const deletePantient = (machine) => () => {
     //set trang thai
-      set(ref(db, `may_tho/${machine.id}`), 
+    set(ref(db, `may_tho/${machine.id}`),
       {
         ...machine, trang_thai: -1
-    });
+      });
     // call api xoa du lieu
   }
 
   return (
-      <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-            <List>
-              {/* {data && data.map((machine) => (
+    <Box sx={{ flexGrow: 1 }}>
+      <div className='machine-container'>
+        <h1 style={{textAlign:"center"}}>Danh sách máy thở</h1>
+        <List>
+          {/* {data && data.map((machine) => (
                  <ListItem
                 key={machine.id}
                   secondaryAction={
@@ -72,58 +72,33 @@ export default function InteractiveList() {
                   </Link>
                 </ListItem>
               ))} */}
-              <ListItem
-                  secondaryAction={
-                    <IconButton>
-                     
-                        <Link to={"/add"}>
-                          <PersonAddAltSharpIcon className='add-pantient-btn'/>
-                        </Link>
-                        
-                    </IconButton>
-                  }
-                >
-                   <Link to={`/detail/${1}`} className='machine-item'>
-                  <ListItemAvatar>
-                    <Avatar>
-                        <PropaneTankSharpIcon />
-                    </Avatar>
-                    <WarningIcon/>
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={`máy số ${1}`}
-                    secondary={"Trống" }
-                  />
-                  </Link>
-                </ListItem>
-                <ListItem
-                  secondaryAction={
-                    <IconButton>
-                     
-                        <Link to={"/add"}>
-                          <PersonAddAltSharpIcon className='add-pantient-btn'/>
-                        </Link>
-                        
-                    </IconButton>
-                  }
-                >
-                   <Link to={`/detail/${1}`} className='machine-item'>
-                  <ListItemAvatar>
-                    <Avatar>
-                        <PropaneTankSharpIcon />
-                    </Avatar>
-                    <WarningIcon/>
-                  </ListItemAvatar>
-                  <ListItemText
-                    primary={`máy số ${1}`}
-                    secondary={"Trống" }
-                  />
-                  </Link>
-                </ListItem>
-            </List>
-        </Grid>
-      </Grid>
+          <ListItem
+            secondaryAction={
+              <IconButton>
+
+                <Link to={"/add"}>
+                  <PersonAddAltSharpIcon className='add-pantient-btn' />
+                </Link>
+
+              </IconButton>
+            }
+          >
+            <Link to={`/detail/${1}`} className='machine-item'>
+              <ListItemAvatar className='avatar' >
+                <Avatar className='avatarMachine'>
+                  <PropaneTankSharpIcon />
+                </Avatar>
+                <WarningIcon className='warning' />
+              </ListItemAvatar>
+              <ListItemText className='avatarText'
+                primary={<strong>Máy số 1</strong>}
+                secondary={<div>Trạng thái : Trống</div>}
+              />
+            </Link>
+          </ListItem>
+        </List>
+      </div>
     </Box>
-    
+
   );
 }

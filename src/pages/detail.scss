@@ -1,11 +1,28 @@
 .info-container {
     padding-top: 16px;
     padding-bottom: 16px;
+    background-color: darkcyan;
+    max-width: none !important;
+    color: white;
+    .info-paper {
+      padding: 16px;
+      display: flex;
+      overflow: auto;
+      flex-direction: column;
+      background-color: antiquewhite;
+      .formSelect{
+        width: 40%;
+      }
+      .chartContainer{
+        display: flex;
+        justify-content: space-around;
+        .lineChart{
+          width: 45% !important;
+          h3{
+           text-align: center;
+          }
+        }
+      }
+    }
   }
   
-  .info-paper {
-    padding: 16px;
-    display: flex;
-    overflow: auto;
-    flex-direction: column;
-  }

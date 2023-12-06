@@ -1,13 +1,18 @@
 import React from 'react'
 import { Paper, TextField, Button, Typography, Container } from '@mui/material';
-import './addPantient.scss'
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import './addPantient.scss';
+import {Link} from 'react-router-dom'
 export default function AddPantient() {
   return (
   
-      <Container maxWidth="sm">
+      <Container  className='formContainer'>
         <Paper className="info-form">
-          <Typography variant="h5" gutterBottom>
-            Thêm Thông Tin
+          <Link to={'/'}>
+            <ArrowBackIcon />
+          </Link>
+          <Typography variant="h5" gutterBottom style={{textAlign:"center"}}>
+            Thêm Thông Tin Bệnh Nhân
           </Typography>
           <form className="form-container">
             <TextField label="Tên" variant="outlined" fullWidth margin="normal" />
